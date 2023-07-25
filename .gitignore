@@ -1,0 +1,16 @@
+# Arquivos gerados pelo Eclipse
+bin/
+.settings/
+.classpath
+.project
+
+# Arquivos gerados pelo IntelliJ IDEA
+out/
+.idea/
+
+# Arquivos gerados pelo Maven
+target/
+
+# Logs
+log/
+logs/
