@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+
+  recebeai-rabbitmq:
+
+    image: rabbitmq:3-management
+
+    container_name: recebeai-rabbitmq
+        
+    ports: 
+      - 5672:5672
+      - 15672:15672 # Web management API 
+
+    volumes:
+      - ./init/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./init/definitions.json:/etc/rabbitmq/definitions.json:ro

@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  recebeai-rabbitmq:
+    extends:
+      file: ./recebeai-infraestructure/recebeai-rabbitmq/docker-compose.yml
+      service: recebeai-rabbitmq
+
+  recebeai-gestaoentregasdb:
+    extends:
+      file: ./recebeai-infraestructure/recebeai-gestaoentregasdb/docker-compose.yml
+      service: recebeai-gestaoentregasdb
