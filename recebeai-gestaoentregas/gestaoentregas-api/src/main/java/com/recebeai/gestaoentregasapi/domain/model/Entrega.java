@@ -21,6 +21,15 @@ public class Entrega {
         this.valor = valor;
     }
 
+    public Entrega(Long id, Date dataInicio, Date dataFim, BigDecimal valor, Receptor receptor, Usuario usuario) {
+        this.id = id;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valor = valor;
+        this.receptor = receptor;
+        this.usuario = usuario;
+    }
+
     @Id
     @Column(name = "identregas")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

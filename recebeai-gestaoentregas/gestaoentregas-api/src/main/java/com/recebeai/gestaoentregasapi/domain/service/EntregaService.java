@@ -12,10 +12,12 @@ import java.util.Optional;
 public class EntregaService {
 
     private final EntregaRepository entregaRepository;
+    private final EnviaNotificacaoService enviaNotificacaoService;
 
     @Autowired
-    public EntregaService(EntregaRepository entregaRepository) {
+    public EntregaService(EntregaRepository entregaRepository, EnviaNotificacaoService enviaNotificacaoService) {
         this.entregaRepository = entregaRepository;
+        this.enviaNotificacaoService = enviaNotificacaoService;
     }
 
     public List<Entrega> listarEntregas() {
@@ -27,7 +29,9 @@ public class EntregaService {
     }
 
     public Entrega salvarEntrega(Entrega entrega) {
-        return entregaRepository.save(entrega);
+        Entrega novaEntrega = entregaRepository.save(entrega);
+        enviaNotificacaoService.send(novaEntrega.getReceptor().getUsuario().getEmail());
+        return novaEntrega;
     }
 
     public void deletarEntrega(Long id) {
