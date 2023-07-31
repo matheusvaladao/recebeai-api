@@ -12,10 +12,10 @@ services:
       file: ./recebeai-infraestructure/recebeai-gestaoentregasdb/docker-compose.yml
       service: recebeai-gestaoentregasdb
 
-  recebeai-gestaocompras:
-    container_name: recebeai-gestaocompras
+  recebeai-gestaoentregas:
+    container_name: recebeai-gestaoentregas
     build:
-      context: ./recebeai-gestaocompras
+      context: ./recebeai-gestaoentregas
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
