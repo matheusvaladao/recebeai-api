@@ -21,3 +21,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
+
+  recebeai-envianotificacao:
+    container_name: recebeai-envianotificacao
+    build:
+      context: ./recebeai-envianotificacao
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
