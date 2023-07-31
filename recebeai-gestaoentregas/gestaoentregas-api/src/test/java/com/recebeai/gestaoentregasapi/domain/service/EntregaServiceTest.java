@@ -1,6 +1,8 @@
 package com.recebeai.gestaoentregasapi.domain.service;
 
 import com.recebeai.gestaoentregasapi.domain.model.Entrega;
+import com.recebeai.gestaoentregasapi.domain.model.Receptor;
+import com.recebeai.gestaoentregasapi.domain.model.Usuario;
 import com.recebeai.gestaoentregasapi.domain.repository.EntregaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,6 +25,9 @@ class EntregaServiceTest {
 
     @Mock
     private EntregaRepository entregaRepository;
+
+    @Mock
+    private EnviaNotificacaoService enviaNotificacaoService;
 
     @InjectMocks
     private EntregaService entregaService;
@@ -56,16 +61,25 @@ class EntregaServiceTest {
     }
 
     @Test
-    void testSalvarEntrega() {
-        Entrega entrega = new Entrega(null, parseDate("2023-07-29"), parseDate("2023-07-30"), new BigDecimal(100.00));
-        Entrega entregaSalva = new Entrega(1L, parseDate("2023-07-29"), parseDate("2023-07-30"), new BigDecimal(100.00));
+    public void testSalvarEntrega() {
 
-        when(entregaRepository.save(entrega)).thenReturn(entregaSalva);
+        Usuario usuario = new Usuario(1L, "usuario1@example.com", "senha123", "Usuario 1", "12345678901", "12345678", "Rua A", new BigDecimal(10.12345678), new BigDecimal(-20.12345678));
 
-        Entrega resultado = entregaService.salvarEntrega(entrega);
+        Receptor receptor = new Receptor(null, 300, "Sexta, Sábado", usuario);
 
-        assertEquals(entregaSalva, resultado);
+        Entrega entrega = new Entrega(1L, parseDate("2023-07-29"), parseDate("2023-07-30"), new BigDecimal(100.00), receptor, usuario);
+
+        when(entregaRepository.save(any(Entrega.class))).thenReturn(entrega);
+
+        Entrega entregaSalva = entregaService.salvarEntrega(entrega);
+
+        verify(entregaRepository).save(entrega);
+
+        verify(enviaNotificacaoService).send(entrega.getReceptor().getUsuario().getEmail());
+
+        assertEquals(entrega, entregaSalva);
     }
+
 
     @Test
     void testDeletarEntrega() {

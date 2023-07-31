@@ -23,6 +23,9 @@ class MarcaServiceTest {
     @InjectMocks
     private MarcaService marcaService;
 
+    @InjectMocks
+    private EnviaNotificacaoService enviaNotificacaoService;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
