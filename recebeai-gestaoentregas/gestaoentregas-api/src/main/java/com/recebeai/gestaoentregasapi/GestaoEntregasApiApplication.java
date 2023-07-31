@@ -1,10 +1,12 @@
 package com.recebeai.gestaoentregasapi;
 
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.TimeZone;
 
+@EnableRabbit
 @SpringBootApplication
 public class GestaoEntregasApiApplication {
 
