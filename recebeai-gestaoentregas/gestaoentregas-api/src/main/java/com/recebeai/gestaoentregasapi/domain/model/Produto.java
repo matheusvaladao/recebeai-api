@@ -33,7 +33,7 @@ public class Produto {
     private Marca marca;
 
     @ManyToOne
-    @JoinColumn(name = "categorias_idcaterorias")
+    @JoinColumn(name = "categorias_idcategorias")
     private Categoria categoria;
 
 }

@@ -13,7 +13,12 @@ public class ProdutoDisassembler {
     private ModelMapper modelMapper;
 
     public Produto toDomainObject(ProdutoInput produtoInput) {
-        return modelMapper.map(produtoInput, Produto.class);
+
+        var produto = new Produto();
+        produto.setDescricao(produtoInput.getDescricao());
+        produto.setValor(produtoInput.getValor());
+
+        return produto;
     }
 
 }

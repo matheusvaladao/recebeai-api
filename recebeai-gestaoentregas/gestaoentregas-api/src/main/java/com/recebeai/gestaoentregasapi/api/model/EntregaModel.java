@@ -1,5 +1,6 @@
 package com.recebeai.gestaoentregasapi.api.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,12 +14,17 @@ import java.util.Date;
 public class EntregaModel {
 
     private Long id;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dataInicio;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dataFim;
+
     private BigDecimal valor;
-    private Long idproduto;
-    private Long idreceptor;
-    private Long idusuario;
+    private Long idProduto;
+    private Long idReceptor;
+    private Long idUsuario;
     private Long idFormaPagamento;
 
 }

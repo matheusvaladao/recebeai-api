@@ -13,7 +13,11 @@ public class EntregaDisassembler {
     private ModelMapper modelMapper;
 
     public Entrega toDomainObject(EntregaInput entregaInput) {
-        return modelMapper.map(entregaInput, Entrega.class);
+        var entrega = new Entrega();
+        entrega.setDataInicio(entregaInput.getDataInicio());
+        entrega.setDataFim(entregaInput.getDataFim());
+        entrega.setValor(entregaInput.getValor());
+        return entrega;
     }
 
 }

@@ -55,9 +55,9 @@ public class EntregaController {
     @PostMapping
     public ResponseEntity<EntregaModel> salvarEntrega(@RequestBody EntregaInput entregaInput) {
         Entrega entrega = entregaDisassembler.toDomainObject(entregaInput);
-        entrega.setReceptor(receptorService.encontrarPorId(entregaInput.getIdreceptor()).get());
-        entrega.setUsuario(usuarioService.encontrarPorId(entregaInput.getIdusuario()).get());
-        entrega.setProduto(produtoService.encontrarPorId(entregaInput.getIdproduto()).get());
+        entrega.setReceptor(receptorService.encontrarPorId(entregaInput.getIdReceptor()).get());
+        entrega.setUsuario(usuarioService.encontrarPorId(entregaInput.getIdUsuario()).get());
+        entrega.setProduto(produtoService.encontrarPorId(entregaInput.getIdProduto()).get());
         entrega.setFormaPagamento(formaPagamentoService.encontrarPorId(entregaInput.getIdFormaPagamento()).get());
         Entrega novaEntrega = entregaService.salvarEntrega(entrega);
         return new ResponseEntity<>(entregaAssembler.toDTO(novaEntrega), HttpStatus.CREATED);

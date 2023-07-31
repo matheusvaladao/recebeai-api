@@ -12,6 +12,6 @@ public class ReceptorModel {
     private Long id;
     private Integer capacidade;
     private String diasRecebimento;
-    private Long idusuario;
+    private Long idUsuario;
 
 }
