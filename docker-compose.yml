@@ -3,11 +3,13 @@ version: '3'
 services:
 
   recebeai-rabbitmq:
+    container_name: recebeai-rabbitmq
     extends:
       file: ./recebeai-infraestructure/recebeai-rabbitmq/docker-compose.yml
       service: recebeai-rabbitmq
 
   recebeai-gestaoentregasdb:
+    container_name: recebeai-gestaoentregasdb
     extends:
       file: ./recebeai-infraestructure/recebeai-gestaoentregasdb/docker-compose.yml
       service: recebeai-gestaoentregasdb

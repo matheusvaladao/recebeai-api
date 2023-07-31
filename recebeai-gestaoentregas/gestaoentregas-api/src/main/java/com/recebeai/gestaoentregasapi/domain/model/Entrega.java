@@ -2,17 +2,15 @@ package com.recebeai.gestaoentregasapi.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
+@Entity(name = "entregas")
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Entrega {
 
@@ -24,25 +22,32 @@ public class Entrega {
     }
 
     @Id
+    @Column(name = "identregas")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "data_inicio")
     private Date dataInicio;
 
+    @Column(name = "data_fim")
     private Date dataFim;
 
     private BigDecimal valor;
 
     @ManyToOne
+    @JoinColumn(name = "produtos_idprodutos")
     private Produto produto;
 
     @ManyToOne
+    @JoinColumn(name = "receptores_idreceptores")
     private Receptor receptor;
 
     @ManyToOne
+    @JoinColumn(name = "usuarios_idusuarios")
     private Usuario usuario;
 
     @ManyToOne
+    @JoinColumn(name = "formas_pagamentos_idformas_pagamentos")
     private FormaPagamento formaPagamento;
 
 }

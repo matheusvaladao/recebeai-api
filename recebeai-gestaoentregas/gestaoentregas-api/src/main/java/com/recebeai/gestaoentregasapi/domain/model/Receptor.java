@@ -2,15 +2,13 @@ package com.recebeai.gestaoentregasapi.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "receptores")
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Receptor {
 
@@ -21,6 +19,7 @@ public class Receptor {
     }
 
     @Id
+    @Column(name = "idreceptores")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -29,6 +28,7 @@ public class Receptor {
     private String diasRecebimento;
 
     @ManyToOne
+    @JoinColumn(name = "usuarios_idusuarios")
     private Usuario usuario;
 
 }
