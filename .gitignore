@@ -3,6 +3,7 @@ bin/
 .settings/
 .classpath
 .project
+*.jar
 
 # Arquivos gerados pelo IntelliJ IDEA
 out/

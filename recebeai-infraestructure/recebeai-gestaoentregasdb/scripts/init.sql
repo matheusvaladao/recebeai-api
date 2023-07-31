@@ -13,7 +13,7 @@ USE gestaoentregasdb;
 DROP TABLE IF EXISTS `gestaoentregasdb`.`usuarios` ;
 
 CREATE TABLE IF NOT EXISTS `gestaoentregasdb`.`usuarios` (
-  `idusuarios` BIGINT NOT NULL,
+  `idusuarios` BIGINT AUTO_INCREMENT NOT NULL,
   `email` VARCHAR(256) NOT NULL,
   `senha` VARCHAR(256) NOT NULL,
   `nome` VARCHAR(256) NOT NULL,
@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gestaoentregasdb`.`receptores` ;
 
 CREATE TABLE IF NOT EXISTS `gestaoentregasdb`.`receptores` (
-  `idreceptores` BIGINT NOT NULL,
+  `idreceptores` BIGINT AUTO_INCREMENT NOT NULL,
   `capacidade` INT NULL,
   `dias_recebimento` VARCHAR(50) NOT NULL,
   `usuarios_idusuarios` BIGINT NOT NULL,
@@ -52,7 +52,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gestaoentregasdb`.`categorias` ;
 
 CREATE TABLE IF NOT EXISTS `gestaoentregasdb`.`categorias` (
-  `idcategorias` BIGINT NOT NULL,
+  `idcategorias` BIGINT AUTO_INCREMENT NOT NULL,
   `descricao` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idcategorias`))
 ENGINE = InnoDB;
@@ -64,7 +64,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gestaoentregasdb`.`marcas` ;
 
 CREATE TABLE IF NOT EXISTS `gestaoentregasdb`.`marcas` (
-  `idmarcas` BIGINT NOT NULL,
+  `idmarcas` BIGINT AUTO_INCREMENT NOT NULL,
   `descricao` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idmarcas`))
 ENGINE = InnoDB;
@@ -76,7 +76,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gestaoentregasdb`.`produtos` ;
 
 CREATE TABLE IF NOT EXISTS `gestaoentregasdb`.`produtos` (
-  `idprodutos` BIGINT NOT NULL,
+  `idprodutos` BIGINT AUTO_INCREMENT NOT NULL,
   `descricao` VARCHAR(50) NOT NULL,
   `valor` DECIMAL(10,2) NOT NULL,
   `marcas_idmarcas` BIGINT NOT NULL,
@@ -103,7 +103,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gestaoentregasdb`.`formas_pagamentos` ;
 
 CREATE TABLE IF NOT EXISTS `gestaoentregasdb`.`formas_pagamentos` (
-  `idformas_pagamentos` BIGINT NOT NULL,
+  `idformas_pagamentos` BIGINT AUTO_INCREMENT NOT NULL,
   `descricao` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`idformas_pagamentos`))
 ENGINE = InnoDB;
@@ -115,7 +115,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gestaoentregasdb`.`entregas` ;
 
 CREATE TABLE IF NOT EXISTS `gestaoentregasdb`.`entregas` (
-  `identregas` BIGINT NOT NULL,
+  `identregas` BIGINT AUTO_INCREMENT NOT NULL,
   `data_inicio` DATE NOT NULL,
   `data_fim` DATE NOT NULL,
   `valor` DECIMAL(10,2) NOT NULL,
