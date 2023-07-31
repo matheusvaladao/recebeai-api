@@ -53,8 +53,8 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity<ProdutoModel> salvarProduto(@RequestBody ProdutoInput produtoInput) {
         Produto produto = produtoDisassembler.toDomainObject(produtoInput);
-        produto.setMarca(marcaService.encontrarPorId(produtoInput.getIdmarca()).get());
-        produto.setCategoria(categoriaService.encontrarPorId(produtoInput.getIdcategoria()).get());
+        produto.setMarca(marcaService.encontrarPorId(produtoInput.getIdMarca()).get());
+        produto.setCategoria(categoriaService.encontrarPorId(produtoInput.getIdCategoria()).get());
         Produto novoProduto = produtoService.salvarProduto(produto);
         return new ResponseEntity<>(produtoAssembler.toDTO(novoProduto), HttpStatus.CREATED);
     }

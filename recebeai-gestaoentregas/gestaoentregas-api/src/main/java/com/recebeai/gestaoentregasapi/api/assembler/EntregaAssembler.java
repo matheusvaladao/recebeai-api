@@ -16,7 +16,12 @@ public class EntregaAssembler {
     private ModelMapper modelMapper;
 
     public EntregaModel toDTO(Entrega entrega) {
-        return modelMapper.map(entrega, EntregaModel.class);
+        var entregaModel = modelMapper.map(entrega, EntregaModel.class);
+        entregaModel.setIdProduto(entrega.getProduto().getId());
+        entregaModel.setIdReceptor(entrega.getReceptor().getId());
+        entregaModel.setIdFormaPagamento(entrega.getFormaPagamento().getId());
+        entregaModel.setIdUsuario(entrega.getUsuario().getId());
+        return entregaModel;
     }
 
     public List<EntregaModel> toCollectionModel(List<Entrega> entregas) {

@@ -13,7 +13,7 @@ public class ProdutoInput {
 
     private String descricao;
     private BigDecimal valor;
-    private Long idmarca;
-    private Long idcategoria;
+    private Long idMarca;
+    private Long idCategoria;
 
 }

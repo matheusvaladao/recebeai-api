@@ -16,7 +16,14 @@ public class ProdutoAssembler {
     private ModelMapper modelMapper;
 
     public ProdutoModel toDTO(Produto produto) {
-        return modelMapper.map(produto, ProdutoModel.class);
+        var produtoModel = new ProdutoModel(
+                produto.getId(),
+                produto.getDescricao(),
+                produto.getValor(),
+                produto.getMarca().getId(),
+                produto.getCategoria().getId()
+        );
+        return produtoModel;
     }
 
     public List<ProdutoModel> toCollectionModel(List<Produto> produtos) {

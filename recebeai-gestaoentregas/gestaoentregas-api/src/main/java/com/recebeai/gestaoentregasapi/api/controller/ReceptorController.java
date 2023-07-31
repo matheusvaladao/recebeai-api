@@ -50,7 +50,7 @@ public class ReceptorController {
     @PostMapping
     public ResponseEntity<ReceptorModel> salvarReceptor(@RequestBody ReceptorInput receptorInput) {
         Receptor receptor = receptorDisassembler.toDomainObject(receptorInput);
-        receptor.setUsuario(usuarioService.encontrarPorId(receptorInput.getIdusuario()).get());
+        receptor.setUsuario(usuarioService.encontrarPorId(receptorInput.getIdUsuario()).get());
         Receptor novoReceptor = receptorService.salvarReceptor(receptor);
         return new ResponseEntity<>(receptorAssembler.toDTO(novoReceptor), HttpStatus.CREATED);
     }

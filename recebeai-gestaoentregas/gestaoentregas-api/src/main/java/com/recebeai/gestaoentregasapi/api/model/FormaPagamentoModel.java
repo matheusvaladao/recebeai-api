@@ -11,6 +11,5 @@ public class FormaPagamentoModel {
 
     private Long id;
     private String descricao;
-    private Long idusuario;
 
 }

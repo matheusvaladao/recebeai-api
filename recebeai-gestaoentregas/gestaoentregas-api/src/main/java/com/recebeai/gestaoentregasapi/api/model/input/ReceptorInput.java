@@ -11,6 +11,6 @@ public class ReceptorInput {
 
     private Integer capacidade;
     private String diasRecebimento;
-    private Long idusuario;
+    private Long idUsuario;
 
 }

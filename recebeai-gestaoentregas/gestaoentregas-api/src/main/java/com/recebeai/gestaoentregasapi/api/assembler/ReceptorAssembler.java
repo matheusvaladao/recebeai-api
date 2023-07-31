@@ -16,7 +16,9 @@ public class ReceptorAssembler {
     private ModelMapper modelMapper;
 
     public ReceptorModel toDTO(Receptor receptor) {
-        return modelMapper.map(receptor, ReceptorModel.class);
+        var receptorModel = modelMapper.map(receptor, ReceptorModel.class);
+        receptorModel.setIdUsuario(receptor.getUsuario().getId());
+        return receptorModel;
     }
 
     public List<ReceptorModel> toCollectionModel(List<Receptor> receptores) {
