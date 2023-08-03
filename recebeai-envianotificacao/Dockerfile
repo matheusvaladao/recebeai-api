@@ -2,11 +2,11 @@ FROM maven:3.8.3-openjdk-11-slim AS build
 
 WORKDIR /app
 
-COPY recebeai-envianotificacao/pom.xml .
+COPY app/pom.xml .
 
 RUN mvn dependency:go-offline
 
-COPY recebeai-envianotificacao/src/ ./src/
+COPY app/src/ ./src/
 
 RUN mvn package
 
