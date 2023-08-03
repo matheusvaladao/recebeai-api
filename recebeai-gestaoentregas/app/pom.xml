@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>com.recebeai</groupId>
-    <artifactId>gestaoentregas-api</artifactId>
+    <artifactId>recebeai-gestaoentregas</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gestaoentregas-api</name>
+    <name>recebeai-gestaoentregas</name>
 
     <description>Demo project for Spring Boot</description>
 
